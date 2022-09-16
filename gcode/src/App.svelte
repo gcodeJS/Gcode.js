@@ -1,8 +1,7 @@
 <script>
-  import Gline from "./lib/Gline.svelte";
+  import Gcanvas from "./lib/Gcanvas.svelte";
 </script>
 
 <main>
-  hello world
-  <Gline></Gline>
+  <Gcanvas />
 </main>
