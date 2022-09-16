@@ -1,0 +1,1 @@
+<div class="h-1 bg-cyan-500"></div>
