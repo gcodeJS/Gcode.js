@@ -1,21 +1,29 @@
 <script>
   import Gline from "./Gline.svelte";
 
-  let array = [];
+  let coordsArray = [];
 
   for (let i = 0; i < 20; i++) {
-    array = [
-      ...array,
+    coordsArray = [
+      ...coordsArray,
       {
-        x: i * 10,
-        y: i * 10,
+        x: i * 20,
+        y: i * 20,
       },
     ];
   }
 </script>
 
 <div>
-  {#each array as item}
-    <Gline x={item.x} y={item.y} />
+  {#each coordsArray as thisCoords, index}
+    {@const prevCoords = coordsArray[index - 1]
+      ? coordsArray[index - 1]
+      : coordsArray[index]}
+    <Gline
+      x={thisCoords.x}
+      y={thisCoords.y}
+      prevX={prevCoords.x}
+      prevY={prevCoords.y}
+    />
   {/each}
 </div>
