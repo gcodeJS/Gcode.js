@@ -3,7 +3,7 @@
 
   let coordsArray = [];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 10; i++) {
     coordsArray = [
       ...coordsArray,
       {
@@ -14,7 +14,7 @@
   }
 </script>
 
-<div>
+<div class="relative bg-white w-40 h-40">
   {#each coordsArray as thisCoords, index}
     {@const prevCoords = coordsArray[index - 1]
       ? coordsArray[index - 1]

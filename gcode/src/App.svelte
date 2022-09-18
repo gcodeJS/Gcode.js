@@ -2,6 +2,6 @@
   import Gcanvas from "./lib/Gcanvas.svelte";
 </script>
 
-<main>
+<main class="grid place-items-center h-full">
   <Gcanvas />
 </main>

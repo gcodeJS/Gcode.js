@@ -41,5 +41,5 @@
 
 <div
   class="h-1 bg-cyan-500 absolute"
-  style="left:{x}px; top:{y}px; width:{setLineWidth()}px; transform:rotate({setLineAngle()}deg;"
+  style="width:{setLineWidth()}px; transform:translate({x}px, {y}px) rotate({setLineAngle()}deg);"
 />
