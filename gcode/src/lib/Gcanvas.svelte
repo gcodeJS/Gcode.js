@@ -1,9 +1,15 @@
 <script>
   import Gline from "./Gline.svelte";
   export let coordsArray;
+
+  const maxCoordX = Math.max(...coordsArray.map((coord) => coord.x));
+  const maxCoordY = Math.max(...coordsArray.map((coord) => coord.y));
 </script>
 
-<div class="relative bg-white shadow-md rounded w-80 h-80">
+<div
+  class="relative bg-white shadow-md rounded"
+  style="width:{maxCoordX}px; height:{maxCoordY}px;"
+>
   {#each coordsArray as thisCoords, index}
     {@const prevCoords = coordsArray[index - 1] ?? thisCoords}
     <Gline

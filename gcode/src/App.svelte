@@ -9,7 +9,7 @@
         ...array,
         {
           x: i * 10 * Math.random(),
-          y: i * 10,
+          y: i * 10 * Math.random(),
         },
       ];
     }
@@ -18,8 +18,10 @@
   };
 </script>
 
-<main class="flex gap-10 place-items-center h-full overflow-auto p-4">
-  <Gcanvas coordsArray={createRandomArray(10)} />
-  <Gcanvas coordsArray={createRandomArray(20)} />
-  <Gcanvas coordsArray={createRandomArray(30)} />
+<main
+  class="flex flex-wrap justify-center gap-10 place-items-center h-full overflow-auto p-10"
+>
+  {#each [10, 20, 30, 40, 50, 60] as numberOfItems}
+    <Gcanvas coordsArray={createRandomArray(numberOfItems)} />
+  {/each}
 </main>
