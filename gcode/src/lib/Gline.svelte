@@ -54,7 +54,6 @@
   }
 </script>
 
-<!-- before:bg-red-500 before:absolute before:opacity-50 before:-top-[50%] before:-translate-x-[50%] before:rounded-full -->
 <div
   class="h-px bg-cyan-500 absolute origin-bottom-left"
   style="width:{setLineWidth()}px; transform:translate({prevX}px, {prevY}px) rotate({setLineAngle()}deg);"

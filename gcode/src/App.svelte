@@ -1,23 +1,25 @@
 <script>
   import Gcanvas from "./lib/Gcanvas.svelte";
 
-  let coordsArray = [];
-  let nTimes = 10;
+  const createRandomArray = (numTimes) => {
+    let array = [];
 
-  for (let i = nTimes * -1; i <= nTimes; i++) {
-    coordsArray = [
-      ...coordsArray,
-      {
-        x: i,
-        y: i * (i * 2),
-      },
-    ];
-  }
+    for (let i = 0; i <= numTimes; i++) {
+      array = [
+        ...array,
+        {
+          x: i * 10 * Math.random(),
+          y: i * 10,
+        },
+      ];
+    }
 
-  console.log(coordsArray)
+    return array;
+  };
 </script>
 
-<main class="grid grid-cols-2 place-items-center h-full">
-  <Gcanvas {coordsArray} />
-  <Gcanvas {coordsArray} />
+<main class="flex gap-10 place-items-center h-full overflow-auto p-4">
+  <Gcanvas coordsArray={createRandomArray(10)} />
+  <Gcanvas coordsArray={createRandomArray(20)} />
+  <Gcanvas coordsArray={createRandomArray(30)} />
 </main>
