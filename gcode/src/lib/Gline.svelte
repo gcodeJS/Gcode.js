@@ -4,7 +4,7 @@
   export let prevX;
   export let prevY;
 
-  console.log({ x, prevX }, { y, prevY });
+  // console.log({ x, prevX }, { y, prevY });
 
   const sameX = x === prevX;
   const sameY = y === prevY;
@@ -40,13 +40,15 @@
       const isPrevXgreater = prevX > x;
       const isPrevYgreater = prevY > y;
 
-      if (isPrevYgreater && sameX) return formula * -1;
       if (isPrevXgreater && sameY) return formula + 180;
       if (isPrevYgreater && isPrevXgreater) return formula - 180;
       if (isPrevXgreater && !isPrevYgreater) return 180 - formula;
-      if (isPrevYgreater && !isPrevXgreater) return formula * -1;
+      if ((isPrevYgreater && sameX) || (isPrevYgreater && !isPrevXgreater))
+        return formula * -1;
       return formula;
     }
+
+    if (sameX) return 90;
 
     return 0;
   }

@@ -1,17 +1,6 @@
 <script>
   import Gline from "./Gline.svelte";
-
-  let coordsArray = [];
-
-  for (let i = -10; i <= 10; i++) {
-    coordsArray = [
-      ...coordsArray,
-      {
-        x: i * 10,
-        y: i * (2 * i),
-      },
-    ];
-  }
+  export let coordsArray;
 </script>
 
 <div class="relative bg-white shadow-md rounded w-80 h-80">
