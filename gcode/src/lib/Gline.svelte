@@ -4,6 +4,8 @@
   export let prevX;
   export let prevY;
 
+  console.log({ x, prevX }, { y, prevY });
+
   const sameX = x === prevX;
   const sameY = y === prevY;
 
@@ -31,15 +33,17 @@
   }
 
   function setLineAngle() {
-    if (hasRotation)
+    if (hasRotation) {
       return (
         (Math.asin(calcLinearLength(y, prevY) / setLineWidth()) * 180) / Math.PI
       );
+    }
     return 0;
   }
 </script>
 
+<!-- before:bg-red-500 before:absolute before:opacity-50 before:-top-[50%] before:-translate-x-[50%] before:rounded-full -->
 <div
-  class="h-1 bg-cyan-500 absolute"
-  style="width:{setLineWidth()}px; transform:translate({x}px, {y}px) rotate({setLineAngle()}deg);"
+  class="h-px bg-cyan-500 absolute origin-bottom-left"
+  style="width:{setLineWidth()}px; transform:translate({prevX}px, {prevY}px) rotate({setLineAngle()}deg);"
 />

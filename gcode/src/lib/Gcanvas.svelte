@@ -3,22 +3,22 @@
 
   let coordsArray = [];
 
-  for (let i = 0; i < 10; i++) {
+  $: console.log(coordsArray);
+
+  for (let i = 1; i < 10; i++) {
     coordsArray = [
       ...coordsArray,
       {
-        x: i * 20,
-        y: i * 20,
+        x: i * 10,
+        y: i * (2 * i),
       },
     ];
   }
 </script>
 
-<div class="relative bg-white w-40 h-40">
+<div class="relative bg-white shadow-md rounded w-80 h-80">
   {#each coordsArray as thisCoords, index}
-    {@const prevCoords = coordsArray[index - 1]
-      ? coordsArray[index - 1]
-      : coordsArray[index]}
+    {@const prevCoords = coordsArray[index - 1] ?? thisCoords}
     <Gline
       x={thisCoords.x}
       y={thisCoords.y}
