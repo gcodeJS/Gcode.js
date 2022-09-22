@@ -34,10 +34,20 @@
 
   function setLineAngle() {
     if (hasRotation) {
-      return (
-        (Math.asin(calcLinearLength(y, prevY) / setLineWidth()) * 180) / Math.PI
-      );
+      const formula =
+        (Math.asin(calcLinearLength(y, prevY) / setLineWidth()) * 180) /
+        Math.PI;
+      const isPrevXgreater = prevX > x;
+      const isPrevYgreater = prevY > y;
+
+      if (isPrevYgreater && sameX) return formula * -1;
+      if (isPrevXgreater && sameY) return formula + 180;
+      if (isPrevYgreater && isPrevXgreater) return formula - 180;
+      if (isPrevXgreater && !isPrevYgreater) return 180 - formula;
+      if (isPrevYgreater && !isPrevXgreater) return formula * -1;
+      return formula;
     }
+
     return 0;
   }
 </script>

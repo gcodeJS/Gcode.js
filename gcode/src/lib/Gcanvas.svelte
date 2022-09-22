@@ -3,9 +3,7 @@
 
   let coordsArray = [];
 
-  $: console.log(coordsArray);
-
-  for (let i = 1; i < 10; i++) {
+  for (let i = -10; i <= 10; i++) {
     coordsArray = [
       ...coordsArray,
       {
