@@ -9,19 +9,22 @@
         ...array,
         {
           x: i * 10 * Math.random(),
-          y: i * 10 * Math.random(),
+          y: i * 10,
         },
       ];
     }
 
+    console.log(array)
+
     return array;
   };
+
+  let nLines = 30;
 </script>
 
 <main
   class="flex flex-wrap justify-center gap-10 place-items-center h-full overflow-auto p-10"
 >
-  {#each [10, 20, 30, 40, 50, 60] as numberOfItems}
-    <Gcanvas coordsArray={createRandomArray(numberOfItems)} />
-  {/each}
+  <input type="range" min="0" max="50" bind:value={nLines} />
+  <Gcanvas coordsArray={createRandomArray(nLines)} />
 </main>

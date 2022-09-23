@@ -1,4 +1,6 @@
 <script>
+  import { scale } from "svelte/transition";
+
   export let x;
   export let y;
   export let prevX;
@@ -57,4 +59,5 @@
 <div
   class="h-px bg-cyan-500 absolute origin-bottom-left"
   style="width:{setLineWidth()}px; transform:translate({prevX}px, {prevY}px) rotate({setLineAngle()}deg);"
+  transition:scale
 />

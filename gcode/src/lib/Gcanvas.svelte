@@ -2,8 +2,8 @@
   import Gline from "./Gline.svelte";
   export let coordsArray;
 
-  const maxCoordX = Math.max(...coordsArray.map((coord) => coord.x));
-  const maxCoordY = Math.max(...coordsArray.map((coord) => coord.y));
+  $: maxCoordX = Math.max(...coordsArray.map((coord) => coord.x));
+  $: maxCoordY = Math.max(...coordsArray.map((coord) => coord.y));
 </script>
 
 <div
