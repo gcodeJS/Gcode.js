@@ -6,8 +6,6 @@
   export let prevX;
   export let prevY;
 
-  // console.log({ x, prevX }, { y, prevY });
-
   const sameX = x === prevX;
   const sameY = y === prevY;
 
@@ -16,14 +14,14 @@
   const hasRotation = !sameX && !sameY;
   const isSameCoord = sameX && sameY;
 
-  const calcLinearLength = (thisCoord, prevCoord) => {
+  function calcLinearLength(thisCoord, prevCoord) {
     const smallest = Math.min(thisCoord, prevCoord);
     const largest = Math.max(thisCoord, prevCoord);
     const difference = largest - smallest;
     return difference;
   };
 
-  const calcRotatedLength = () => {
+  function calcRotatedLength () {
     return Math.hypot(calcLinearLength(x, prevX), calcLinearLength(y, prevY));
   };
 
