@@ -19,11 +19,11 @@
     const largest = Math.max(thisCoord, prevCoord);
     const difference = largest - smallest;
     return difference;
-  };
+  }
 
-  function calcRotatedLength () {
+  function calcRotatedLength() {
     return Math.hypot(calcLinearLength(x, prevX), calcLinearLength(y, prevY));
-  };
+  }
 
   function setLineWidth() {
     if (hasRotation) return calcRotatedLength();
@@ -56,6 +56,19 @@
 
 <div
   class="h-px bg-cyan-500 absolute origin-bottom-left"
-  style="width:{setLineWidth()}px; transform:translate({prevX}px, {prevY}px) rotate({setLineAngle()}deg);"
+  style="
+  --line-width:{setLineWidth()}px; 
+  --prev-x-coord:{prevX}px; 
+  --prev-y-coord:{prevY}px; 
+  --line-angle:{setLineAngle()}deg;
+  "
   transition:scale
 />
+
+<style>
+  div {
+    width: var(--line-width);
+    transform: translate(var(--prev-x-coord), var(--prev-y-coord))
+      rotate(var(--line-angle));
+  }
+</style>

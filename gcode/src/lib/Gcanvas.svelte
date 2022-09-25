@@ -11,19 +11,14 @@
   let hNot = 0;
 
   $: scrollBarHeight = hWith - hNot;
-
-  $: console.log(scrollBarHeight);
 </script>
-
-<style>
-
-</style>
 
 <div
   class="relative bg-white shadow-md rounded overflow-auto"
-  style="width:{maxCoordX + CORRECTION_DIMENSIONS}px; height:{maxCoordY +
-    CORRECTION_DIMENSIONS +
-    scrollBarHeight}px;"
+  style=" 
+  --canvas-width:{maxCoordX + CORRECTION_DIMENSIONS}px; 
+  --canvas-height:{maxCoordY + scrollBarHeight + CORRECTION_DIMENSIONS}px;
+  "
   bind:clientHeight={hNot}
   bind:offsetHeight={hWith}
 >
@@ -35,6 +30,12 @@
       prevX={prevCoords.x}
       prevY={prevCoords.y}
     />
-    <!-- <div class="h-1 w-1 bg-red-500 absolute rounded-full" style="top:{thisCoords.y}px; left:{thisCoords.x}px;"></div> -->
   {/each}
 </div>
+
+<style>
+  div {
+    width: var(--canvas-width);
+    height: var(--canvas-height);
+  }
+</style>
