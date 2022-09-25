@@ -1,29 +1,28 @@
 <script>
   import Gcanvas from "./lib/Gcanvas.svelte";
-  
-  let nLines = 10;
-  
-  function createRandomArray(numTimes) {
-    let array = [];
 
-    for (let i = 0; i <= numTimes; i++) {
+  let array = [];
+
+  function createRandomArray() {
+    array = [];
+    for (let i = 0; i <= 30; i++) {
       array = [
         ...array,
         {
-          x: i * (2 * i),
+          x: i * 10 * Math.random(),
           y: i * 10,
         },
       ];
     }
-
-    return array;
-  };
-
+  }
 </script>
 
 <main
   class="flex flex-wrap justify-center gap-10 place-items-center h-full overflow-auto p-10"
 >
-  <input class="fixed top-0 m-4 w-[80vw]" type="range" min="0" max="50" bind:value={nLines} />
-  <Gcanvas coordsArray={createRandomArray(nLines)} />
+  <button
+    class="bg-sky-500 p-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-110 border-0 focus:border-4 focus:border-blue-800 focus:bg-blue-400 hover:shadow-sky-600/30 transition duration-300"
+    on:click={createRandomArray}>click me</button
+  >
+  <Gcanvas coordsArray={array} />
 </main>
