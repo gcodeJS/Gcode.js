@@ -10,7 +10,7 @@ on:
 
 defaults:
  run:
-  working-directory: ./gcode
+  working-directory: gcode
 
 jobs:
   test_pull_request:
