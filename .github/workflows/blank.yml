@@ -26,7 +26,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: cd gcode
+        run: echo hello world
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -37,7 +37,7 @@ jobs:
       # test custom commands
 
       - name: install packages but with CI instead of install
-        run: npm ci
+        run: npm install
 
       - name: build vite app to build folder
         run: npm run build
