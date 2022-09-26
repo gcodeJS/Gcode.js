@@ -9,8 +9,9 @@ on:
       - develop
 
 defaults:
- run:
-  working-directory: gcode
+  run:
+    shell: bash
+    working-directory: gcode
 
 jobs:
   test_pull_request:
