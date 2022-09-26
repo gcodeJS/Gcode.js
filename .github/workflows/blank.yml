@@ -37,7 +37,12 @@ jobs:
       # test custom commands
 
       - name: install packages but with CI instead of install
-        run: npm ci
-
-      - name: build vite app to build folder
-        run: npm run build
+        run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+          npm run build
