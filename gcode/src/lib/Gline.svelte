@@ -65,7 +65,7 @@
   --prev-y-coord:{prevY}px; 
   --line-angle:{setLineAngle()}deg;
   "
-  transition:scale={{ duration: 200, delay: index * 50 }}
+  transition:scale
   on:introstart={() => {
     parentOverflow = true;
   }}

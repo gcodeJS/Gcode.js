@@ -11,7 +11,7 @@
   let hNot = 0;
 
   $: scrollBarHeight = hWith - hNot;
-  
+
   let parentOverflow;
 
   $: setOverflowStyle = parentOverflow ? "hidden" : "auto";
@@ -34,9 +34,9 @@
       y={thisCoords.y}
       prevX={prevCoords.x}
       prevY={prevCoords.y}
-      index={index}
+      {index}
       totalLines={coordsArray.length}
-      bind:parentOverflow={parentOverflow}
+      bind:parentOverflow
     />
   {/each}
 </div>
@@ -45,6 +45,6 @@
   div {
     width: var(--canvas-width);
     height: var(--canvas-height);
-    overflow: var(--parentOverflow) !important;
+    overflow: var(--parentOverflow);
   }
 </style>
