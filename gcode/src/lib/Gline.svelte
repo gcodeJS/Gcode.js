@@ -5,6 +5,9 @@
   export let y;
   export let prevX;
   export let prevY;
+  export let index;
+  export let parentOverflow = false;
+  export let totalLines;
 
   const sameX = x === prevX;
   const sameY = y === prevY;
@@ -62,7 +65,13 @@
   --prev-y-coord:{prevY}px; 
   --line-angle:{setLineAngle()}deg;
   "
-  transition:scale
+  transition:scale={{ duration: 200, delay: index * 50 }}
+  on:introstart={() => {
+    parentOverflow = true;
+  }}
+  on:introend={() => {
+    if (index === totalLines.length) parentOverflow = false;
+  }}
 />
 
 <style>

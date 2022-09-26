@@ -11,13 +11,18 @@
   let hNot = 0;
 
   $: scrollBarHeight = hWith - hNot;
+  
+  let parentOverflow;
+
+  $: setOverflowStyle = parentOverflow ? "hidden" : "auto";
 </script>
 
 <div
-  class="relative bg-white shadow-md rounded overflow-auto"
+  class="Gcanvas relative bg-white shadow-md rounded overflow-auto transition-[width,height]"
   style=" 
   --canvas-width:{maxCoordX + CORRECTION_DIMENSIONS}px; 
   --canvas-height:{maxCoordY + scrollBarHeight + CORRECTION_DIMENSIONS}px;
+  --parentOverflow:{setOverflowStyle};
   "
   bind:clientHeight={hNot}
   bind:offsetHeight={hWith}
@@ -29,6 +34,9 @@
       y={thisCoords.y}
       prevX={prevCoords.x}
       prevY={prevCoords.y}
+      index={index}
+      totalLines={coordsArray.length}
+      bind:parentOverflow={parentOverflow}
     />
   {/each}
 </div>
@@ -37,5 +45,6 @@
   div {
     width: var(--canvas-width);
     height: var(--canvas-height);
+    overflow: var(--parentOverflow) !important;
   }
 </style>
