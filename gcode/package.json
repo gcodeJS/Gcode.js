@@ -1,0 +1,18 @@
+{
+  "name": "gcode",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "twcss": "npx tailwindcss -i ./src/tailwind.css -o ./dist/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.2",
+    "svelte": "^3.49.0",
+    "tailwindcss": "^3.1.8",
+    "vite": "^3.1.0"
+  }
+}
