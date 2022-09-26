@@ -10,7 +10,6 @@ on:
 
 defaults:
   run:
-    shell: bash
     working-directory: gcode
 
 jobs:
@@ -22,5 +21,4 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm run twcss
       - run: npm run build
