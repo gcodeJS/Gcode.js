@@ -84,12 +84,10 @@ on:introend={() => {
 
   @keyframes show {
     from {
-      translate: 0 20vmin;
-       scale:0; 
+      translate: 0 50vmin;
     }
     to {
       translate: 0;
-       scale:1; 
     }
   }
 </style>
