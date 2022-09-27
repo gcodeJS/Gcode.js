@@ -62,7 +62,7 @@
   --prev-x-coord:{prevX}px; 
   --prev-y-coord:{prevY}px; 
   --line-angle:{setLineAngle()}deg;
-  --line-delay:{15 * index}ms;
+  --line-delay:{50 * index}ms;
   "
 />
 
@@ -85,11 +85,11 @@ on:introend={() => {
   @keyframes show {
     from {
       translate: 0 20vmin;
-      /* scale:0; */
+       scale:0; 
     }
     to {
       translate: 0;
-      /* scale:1; */
+       scale:1; 
     }
   }
 </style>
