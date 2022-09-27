@@ -1,5 +1,6 @@
 <script>
   import Gcanvas from "./lib/Gcanvas.svelte";
+  import Gsource from "./lib/Gsource.svelte";
 
   let array = [];
 
@@ -25,4 +26,5 @@
     on:click={createRandomArray}>click me</button
   >
   <Gcanvas coordsArray={array} />
+  <Gsource coordsArray={array} />
 </main>
