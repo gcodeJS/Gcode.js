@@ -1,6 +1,4 @@
 <script>
-  import { scale } from "svelte/transition";
-
   export let x;
   export let y;
   export let prevX;
@@ -64,20 +62,34 @@
   --prev-x-coord:{prevX}px; 
   --prev-y-coord:{prevY}px; 
   --line-angle:{setLineAngle()}deg;
+  --line-delay:{15 * index}ms;
   "
-  transition:scale
-  on:introstart={() => {
-    parentOverflow = true;
-  }}
-  on:introend={() => {
-    if (index === totalLines.length) parentOverflow = false;
-  }}
 />
 
+<!-- transition:scale
+on:introstart={() => {
+  if (index === 0) parentOverflow = true;
+}}
+on:introend={() => {
+  if (index === totalLines.length) parentOverflow = false;
+}}
+-->
 <style>
   div {
     width: var(--line-width);
     transform: translate(var(--prev-x-coord), var(--prev-y-coord))
       rotate(var(--line-angle));
+    animation: show var(--line-delay);
+  }
+
+  @keyframes show {
+    from {
+      translate: 0 20vmin;
+      /* scale:0; */
+    }
+    to {
+      translate: 0;
+      /* scale:1; */
+    }
   }
 </style>
