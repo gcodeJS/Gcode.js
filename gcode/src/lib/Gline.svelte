@@ -77,14 +77,13 @@ on:introend={() => {
 <style>
   div {
     width: var(--line-width);
-    transform: translate(var(--prev-x-coord), var(--prev-y-coord))
-      rotate(var(--line-angle));
+    transform: translate(var(--prev-x-coord), var(--prev-y-coord)) rotate(var(--line-angle));
     animation: show var(--line-delay);
   }
 
   @keyframes show {
     from {
-      translate: 0 50vmin;
+      translate: 0 50cqmin;
     }
     to {
       translate: 0;

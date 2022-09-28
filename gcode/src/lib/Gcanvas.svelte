@@ -46,5 +46,6 @@
     width: var(--canvas-width);
     height: var(--canvas-height);
     overflow: var(--parentOverflow);
+    container-type: inline-size;
   }
 </style>

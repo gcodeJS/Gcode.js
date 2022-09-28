@@ -4,7 +4,7 @@
   export let coordsArray;
 </script>
 
-<div class="p-4 bg-white/50 rounded-lg max-h-80 overflow-auto">
+<div class="p-4 bg-white/50 rounded-lg max-h-80 w-100 overflow-auto">
   {#each coordsArray as thisCoords, index (thisCoords)}
     <GlineCode x={thisCoords.x} y={thisCoords.y} index={index} />
   {/each}

@@ -4,7 +4,7 @@
   export let index;
 </script>
 
-<div style="--line-delay:{50 * index}ms;">
+<div style="--line-delay:{50 * index}ms; animate">
   N{index} G1 X{x.toFixed(2)} Y{y.toFixed(2)}
 </div>
 
