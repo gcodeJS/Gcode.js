@@ -3,7 +3,7 @@ generate/simulate CNC 3d machine native G code. written in svelte framework, com
 
 -----
 
-#examples:
+# examples:
 
 https://gcodejs.netlify.app
 
