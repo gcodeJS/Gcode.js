@@ -4,8 +4,7 @@
   export let prevX;
   export let prevY;
   export let index;
-  export let parentOverflow = false;
-  export let totalLines;
+  export let anim_speed = 20;
 
   const sameX = x === prevX;
   const sameY = y === prevY;
@@ -62,18 +61,10 @@
   --prev-x-coord:{prevX}px; 
   --prev-y-coord:{prevY}px; 
   --line-angle:{setLineAngle()}deg;
-  --line-delay:{50 * index}ms;
+  --line-delay:{anim_speed * index}ms;
   "
 />
 
-<!-- transition:scale
-on:introstart={() => {
-  if (index === 0) parentOverflow = true;
-}}
-on:introend={() => {
-  if (index === totalLines.length) parentOverflow = false;
-}}
--->
 <style>
   div {
     width: var(--line-width);
@@ -83,9 +74,11 @@ on:introend={() => {
 
   @keyframes show {
     from {
-      translate: 0 50cqmin;
+      scale: 0;
+      translate: 100cqw;
     }
     to {
+      scale: 1;
       translate: 0;
     }
   }

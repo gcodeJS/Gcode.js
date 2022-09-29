@@ -12,9 +12,7 @@
 
   $: scrollBarHeight = hWith - hNot;
 
-  let parentOverflow;
-
-  $: setOverflowStyle = parentOverflow ? "hidden" : "auto";
+  export let anim_speed;
 </script>
 
 <div
@@ -22,7 +20,6 @@
   style=" 
   --canvas-width:{maxCoordX + CORRECTION_DIMENSIONS}px; 
   --canvas-height:{maxCoordY + scrollBarHeight + CORRECTION_DIMENSIONS}px;
-  --parentOverflow:{setOverflowStyle};
   "
   bind:clientHeight={hNot}
   bind:offsetHeight={hWith}
@@ -35,8 +32,7 @@
       prevX={prevCoords.x}
       prevY={prevCoords.y}
       {index}
-      totalLines={coordsArray.length}
-      bind:parentOverflow
+      {anim_speed}
     />
   {/each}
 </div>
@@ -45,7 +41,6 @@
   div {
     width: var(--canvas-width);
     height: var(--canvas-height);
-    overflow: var(--parentOverflow);
     container-type: inline-size;
   }
 </style>
