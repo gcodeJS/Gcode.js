@@ -2,7 +2,7 @@
   import GlineCode from "./GlineCode.svelte";
 
   export let coordsArray;
-  export let anim_speed;
+  export let anim_speed = 20;
 </script>
 
 {#if coordsArray.length > 0}

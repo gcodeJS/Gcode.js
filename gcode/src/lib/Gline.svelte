@@ -4,7 +4,7 @@
   export let prevX;
   export let prevY;
   export let index;
-  export let anim_speed = 20;
+  export let anim_speed;
 
   const sameX = x === prevX;
   const sameY = y === prevY;
