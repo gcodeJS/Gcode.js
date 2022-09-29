@@ -2,9 +2,10 @@
   export let x;
   export let y;
   export let index;
+  export let anim_speed = 20;
 </script>
 
-<div style="--line-delay:{50 * index}ms;">
+<div style="--line-delay:{anim_speed * index}ms;">
   N{index} G1 X{x.toFixed(2)} Y{y.toFixed(2)}
 </div>
 
@@ -15,9 +16,8 @@
 
   @keyframes show {
     from {
-      opacity: 0;
       scale: 0;
-      translate: 0 200%;
+      translate: -100% 100%;
     }
     to {
       scale: 1;

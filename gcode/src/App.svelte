@@ -3,6 +3,7 @@
   import Gsource from "./lib/Gsource.svelte";
 
   let array = [];
+  const ANIMATION_SPEED=50;
 
   function createRandomArray() {
     array = [];
@@ -25,6 +26,6 @@
     class="bg-sky-500 p-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-110 focus:outline  hover:shadow-sky-600/30 transition duration-300"
     on:click={createRandomArray}>click me</button
   >
-  <Gcanvas coordsArray={array} />
-  <Gsource coordsArray={array} />
+  <Gcanvas coordsArray={array} anim_speed={ANIMATION_SPEED} />
+  <Gsource coordsArray={array} anim_speed={ANIMATION_SPEED}/>
 </main>
