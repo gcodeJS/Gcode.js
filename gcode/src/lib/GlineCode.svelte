@@ -4,17 +4,17 @@
   export let index;
   export let anim_speed;
 
-  let bindedThis;
+  let thisCodeDiv;
   
-  $: if (bindedThis) {
-    bindedThis.addEventListener("animationend", () => {
-      bindedThis.scrollIntoView()
+  $: if (thisCodeDiv) {
+    thisCodeDiv.addEventListener("animationend", () => {
+      thisCodeDiv.scrollIntoView()
     })
   }
 </script>
 
 <div
-  bind:this={bindedThis}
+  bind:this={thisCodeDiv}
   style="--line-delay:{anim_speed * index}ms;"
 >
   N{index} G1 X{x.toFixed(2)} Y{y.toFixed(2)}
