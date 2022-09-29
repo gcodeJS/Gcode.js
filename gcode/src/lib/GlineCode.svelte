@@ -17,7 +17,7 @@
   @keyframes show {
     from {
       scale: 0;
-      translate: -100% 100%;
+      translate: -100%;
     }
     to {
       scale: 1;
