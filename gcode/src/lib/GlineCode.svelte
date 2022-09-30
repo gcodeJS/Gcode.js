@@ -7,11 +7,17 @@
   let thisCodeDiv;
 
   $: if (thisCodeDiv) {
+   
+
+
     thisCodeDiv.addEventListener("animationend", () => {
-      thisCodeDiv.scrollIntoView({
-        behavior: "smooth"
-      });
+       if(index === 0 || index % 10 === 0) {
+         thisCodeDiv.scrollIntoView({
+           behavior: "smooth"
+         });
+       }
     });
+    
   }
 </script>
 
