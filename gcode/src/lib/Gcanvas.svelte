@@ -12,7 +12,7 @@
 
   $: scrollBarHeight = hWith - hNot;
 
-  export let anim_speed;
+  export let anim_speed = 20;
 </script>
 
 <div

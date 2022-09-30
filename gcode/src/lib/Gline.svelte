@@ -4,10 +4,13 @@
   export let prevX;
   export let prevY;
   export let index;
-  export let anim_speed = 20;
+  export let anim_speed;
 
   const sameX = x === prevX;
   const sameY = y === prevY;
+
+  const isPrevXgreater = prevX > x;
+  const isPrevYgreater = prevY > y;
 
   const isMovingXaxisOnly = !sameX && sameY;
   const isMovingYaxisOnly = !sameY && sameX;
@@ -37,8 +40,6 @@
       const formula =
         (Math.asin(calcLinearLength(y, prevY) / setLineWidth()) * 180) /
         Math.PI;
-      const isPrevXgreater = prevX > x;
-      const isPrevYgreater = prevY > y;
 
       if (isPrevXgreater && sameY) return formula + 180;
       if (isPrevYgreater && isPrevXgreater) return formula - 180;
@@ -52,23 +53,31 @@
 
     return 0;
   }
+  
+  function setLineTransformOrigin() {
+    if (isPrevXgreater || isPrevYgreater) return "center left";
+    return "bottom left";
+  }
 </script>
 
 <div
-  class="h-px bg-cyan-500 absolute origin-bottom-left"
+  class="h-px bg-cyan-500 absolute"
   style="
   --line-width:{setLineWidth()}px; 
   --prev-x-coord:{prevX}px; 
   --prev-y-coord:{prevY}px; 
   --line-angle:{setLineAngle()}deg;
   --line-delay:{anim_speed * index}ms;
+  --line-transform-origin:{setLineTransformOrigin()};
   "
 />
 
 <style>
   div {
     width: var(--line-width);
-    transform: translate(var(--prev-x-coord), var(--prev-y-coord)) rotate(var(--line-angle));
+    transform: translate(var(--prev-x-coord), var(--prev-y-coord))
+      rotate(var(--line-angle));
+    transform-origin: var(--line-transform-origin);
     animation: show var(--line-delay);
   }
 
