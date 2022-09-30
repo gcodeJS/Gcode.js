@@ -5,19 +5,19 @@
   export let anim_speed;
 
   let thisCodeDiv;
-  
+
   $: if (thisCodeDiv) {
     thisCodeDiv.addEventListener("animationend", () => {
-      thisCodeDiv.scrollIntoView()
-    })
+      thisCodeDiv.scrollIntoView();
+    });
   }
 </script>
 
-<div
-  bind:this={thisCodeDiv}
-  style="--line-delay:{anim_speed * index}ms;"
->
-  N{index} G1 X{x.toFixed(2)} Y{y.toFixed(2)}
+<div bind:this={thisCodeDiv} style="--line-delay:{anim_speed * index}ms;">
+  <span>N{index}</span>
+  <span>G1</span> 
+  <span>X{x.toFixed(2)}</span>
+  <span>Y{y.toFixed(2)}</span>
 </div>
 
 <style>
