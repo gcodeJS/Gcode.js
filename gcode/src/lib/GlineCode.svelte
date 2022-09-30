@@ -8,7 +8,9 @@
 
   $: if (thisCodeDiv) {
     thisCodeDiv.addEventListener("animationend", () => {
-      thisCodeDiv.scrollIntoView();
+      thisCodeDiv.scrollIntoView({
+        behavior: "smooth"
+      });
     });
   }
 </script>
