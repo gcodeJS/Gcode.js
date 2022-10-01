@@ -2,7 +2,7 @@
   import Gline from "./Gline.svelte";
   export let coordsArray;
 
-  const CORRECTION_DIMENSIONS = 2;
+  const CORRECTION_DIMENSIONS = 1;
 
   $: maxCoordX = Math.max(...coordsArray.map((coord) => coord.x));
   $: maxCoordY = Math.max(...coordsArray.map((coord) => coord.y));

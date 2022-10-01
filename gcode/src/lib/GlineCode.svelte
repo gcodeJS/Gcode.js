@@ -4,26 +4,17 @@
   export let index;
   export let anim_speed;
 
-  let thisCodeDiv;
-
-  $: if (thisCodeDiv) {
-   
-
-
-    thisCodeDiv.addEventListener("animationend", () => {
-       if(index === 0 || index % 10 === 0) {
-         thisCodeDiv.scrollIntoView({
-           behavior: "smooth"
-         });
-       }
-    });
-    
+  function scrollToThisElement(e) {
+    e.target.scrollIntoView();
   }
 </script>
 
-<div bind:this={thisCodeDiv} style="--line-delay:{anim_speed * index}ms;">
+<div
+  style="--line-delay:{anim_speed * index}ms;"
+  on:animationend={scrollToThisElement}
+>
   <span>N{index}</span>
-  <span>G1</span> 
+  <span>G1</span>
   <span>X{x.toFixed(2)}</span>
   <span>Y{y.toFixed(2)}</span>
 </div>

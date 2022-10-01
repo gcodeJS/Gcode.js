@@ -83,12 +83,7 @@
 
   @keyframes show {
     from {
-      scale: 0;
-      translate: 100cqw;
-    }
-    to {
-      scale: 1;
-      translate: 0;
+      translate: 0 -100cqmin;
     }
   }
 </style>
