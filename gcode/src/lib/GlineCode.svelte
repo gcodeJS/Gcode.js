@@ -26,10 +26,10 @@
 
   @keyframes show {
     from {
-      translate: 100%;
+      scale: 0;
     }
     to {
-      translate: 0;
+      scale: 1;
     }
   }
 </style>
