@@ -17,7 +17,7 @@
 
 <div
   class="Gcanvas relative bg-white shadow-md rounded overflow-auto transition-[width,height]"
-  style=" 
+  style="
   --canvas-width:{maxCoordX + CORRECTION_DIMENSIONS}px; 
   --canvas-height:{maxCoordY + scrollBarHeight + CORRECTION_DIMENSIONS}px;
   "
