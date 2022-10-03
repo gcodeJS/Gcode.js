@@ -2,7 +2,7 @@
   import Gline from "./Gline.svelte";
   export let coordsArray;
 
-  const CORRECTION_DIMENSIONS = 2;
+  const CORRECTION_DIMENSIONS = 1;
 
   $: maxCoordX = Math.max(...coordsArray.map((coord) => coord.x));
   $: maxCoordY = Math.max(...coordsArray.map((coord) => coord.y));
@@ -17,7 +17,7 @@
 
 <div
   class="Gcanvas relative bg-white shadow-md rounded overflow-auto transition-[width,height]"
-  style=" 
+  style="
   --canvas-width:{maxCoordX + CORRECTION_DIMENSIONS}px; 
   --canvas-height:{maxCoordY + scrollBarHeight + CORRECTION_DIMENSIONS}px;
   "
