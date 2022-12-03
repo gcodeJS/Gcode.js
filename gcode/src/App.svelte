@@ -3,6 +3,7 @@
   import Gsource from "./lib/Gsource.svelte";
 
   let array = [];
+
   const ANIMATION_SPEED = 20;
 
   function createRandomArray() {
@@ -14,15 +15,22 @@
         {
           x: i * 10,
           y: maxY * Math.random(),
+          options: {
+            before: {
+              G: 1,
+              M:4
+            },
+            after: {
+              comment: "hello world",
+            },
+          },
         },
       ];
     }
   }
 </script>
 
-<main
-  class="p-5 h-full overflow-auto"
->
+<main class="p-5 h-full overflow-auto">
   <button
     class="bg-sky-500 p-4 mb-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-110 focus:outline hover:shadow-sky-600/30 transition"
     on:click={createRandomArray}>click me</button
