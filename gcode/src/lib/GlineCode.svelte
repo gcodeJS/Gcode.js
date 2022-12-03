@@ -1,17 +1,14 @@
 <script>
   export let positionsObj;
   export let index;
-  export let anim_speed;
 
-  function scrollToThisElement(e) {
-    e.target.scrollIntoView({block: 'nearest'});
-  }
+  // function scrollToThisElement(e) {
+  //   e.target.scrollIntoView();
+  // }
 </script>
 
 <div
   class="flex gap-2"
-  style="--line-delay:{anim_speed * index}ms;"
-  on:animationend={scrollToThisElement}
 >
   <span>N{index}</span>
   <span>G1</span>
@@ -33,7 +30,7 @@
   </div>
 </div>
 
-<style>
+<!-- <style>
   div {
     animation: show var(--line-delay);
   }
@@ -46,4 +43,4 @@
       scale: 1;
     }
   }
-</style>
+</style> -->
