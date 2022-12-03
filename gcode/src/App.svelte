@@ -18,10 +18,9 @@
           options: {
             before: {
               G: 1,
-              M:4
             },
             after: {
-              comment: "hello world",
+              comment: Math.random().toString(2).substring(2, 10),
             },
           },
         },
