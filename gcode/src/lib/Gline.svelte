@@ -50,6 +50,7 @@
     }
 
     if (sameX) return 90;
+    if(isPrevXgreater) return 180; // TODO: test this line properly :)
 
     return 0;
   }

@@ -102,22 +102,23 @@
           (ExampleData.tool.diameter / 100) * ExampleData.tool.percentage, // diam percentage measure
       };
 
-      ExampleData.coords.previus.z = linesZcompleted;
+      if (linesZcompleted === linesToDo.z) {
+        ExampleData.coords.previus.x = startPoints.x;
+        ExampleData.coords.previus.y = startPoints.y;
+      }
 
-      array = [
-        ...array,
-        {
-          x: startPoints.x,
-          y: startPoints.y,
-          z: ExampleData.coords.previus.z,
-          options: {
-            before: {
-              G: 1,
-            },
-          },
-        },
-      ];
-      
+      if (linesZcompleted === 0) {
+        ExampleData.coords.previus.z += ExampleData.options.distanzaSicurezza;
+        addThisCoordinate({G:0});
+
+        ExampleData.coords.previus.x = startPoints.x;
+        ExampleData.coords.previus.y = startPoints.y;
+        addThisCoordinate({G:0});
+      }
+
+      ExampleData.coords.previus.z = linesZcompleted;
+      addThisCoordinate();
+
       for (
         let linesYcompleted = 0;
         linesYcompleted <= linesToDo.y;
@@ -129,7 +130,7 @@
             ExampleData.coords.zeroPoint.x -
             ExampleData.options.distanzaSicurezza; // go left
           addThisCoordinate();
-          ExampleData.coords.previus.y +=
+          ExampleData.coords.previus.y += // need to be -= but for making it visible I use +
             (ExampleData.tool.diameter / 100) * ExampleData.tool.percentage;
           addThisCoordinate();
           isRight = false;
@@ -137,28 +138,28 @@
           ExampleData.coords.previus.x =
             ExampleData.piece.height + ExampleData.options.distanzaSicurezza; // go right
           addThisCoordinate();
-          ExampleData.coords.previus.y +=
+          ExampleData.coords.previus.y += // need to be -= but for making it visible I use +
             (ExampleData.tool.diameter / 100) * ExampleData.tool.percentage;
           addThisCoordinate();
           isRight = true;
         }
-
-        function addThisCoordinate() {
-          array = [
-            ...array,
-            {
-              x: ExampleData.coords.previus.x,
-              y: ExampleData.coords.previus.y,
-              z: ExampleData.coords.previus.z,
-              options: {
-                before: {
-                  G: 1,
-                },
-              },
-            },
-          ];
-        }
       }
+    }
+
+    function addThisCoordinate(options = {G:1}) {
+      array = [
+        ...array,
+        {
+          x: ExampleData.coords.previus.x,
+          y: ExampleData.coords.previus.y,
+          z: ExampleData.coords.previus.z,
+          options: {
+            before: {
+              G: options.G,
+            },
+          },
+        },
+      ];
     }
   }
 </script>
