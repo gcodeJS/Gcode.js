@@ -3,8 +3,9 @@
 </script>
 
 <div class="flex order-last">
-  <span class="text-slate-400">
-    ; {optionsObj.comment}
-  </span>
+  {#if optionsObj != null}
+    <span class="text-slate-400">
+      ; {optionsObj.comment}
+    </span>
+  {/if}
 </div>
-
