@@ -10,7 +10,7 @@
       </span>
     {:else}
       <span class="text-rose-500">
-        {pos.toFixed(2)}
+        {pos.toFixed(2) % 2 === 0 ? pos : pos.toFixed(2)}
       </span>
     {/if}
   {/each}
