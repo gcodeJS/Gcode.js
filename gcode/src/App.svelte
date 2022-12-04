@@ -55,7 +55,7 @@
 
     <button
       class="bg-sky-500 p-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-[1.01] focus:outline hover:shadow-sky-600/30 transition"
-      on:click={createLineaObbliqua}>spianatura</button
+      on:click={createLineaObbliqua}>linea obliqua</button
     >
   </div>
 
