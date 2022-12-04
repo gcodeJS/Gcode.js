@@ -9,7 +9,7 @@
   function createRandomArray() {
     array = [];
     const maxY = (window.innerHeight / 100) * 40;
-    for (let i = 0; i <= 100; i++) {
+    for (let i = 0; i <= 50; i++) {
       array = [
         ...array,
         {
@@ -27,13 +27,37 @@
       ];
     }
   }
+
+  function createLineaObbliqua() {
+    array = [];
+
+    for (let i = 0; i <= 50; i++) {
+      array = [
+        ...array,
+        {
+          x: i * 10,
+          y: i * 10,
+          options: {
+            G: 2,
+          },
+        },
+      ];
+    }
+  }
 </script>
 
-<main class="p-5 h-full overflow-auto">
-  <button
-    class="bg-sky-500 p-4 mb-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-110 focus:outline hover:shadow-sky-600/30 transition"
-    on:click={createRandomArray}>click me</button
-  >
+<main class="flex flex-wrap p-4 gap-4 h-full overflow-auto">
+  <div class="flex flex-wrap gap-4">
+    <button
+      class="bg-sky-500 p-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-[1.01] focus:outline hover:shadow-sky-600/30 transition"
+      on:click={createRandomArray}>random</button
+    >
+
+    <button
+      class="bg-sky-500 p-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-[1.01] focus:outline hover:shadow-sky-600/30 transition"
+      on:click={createLineaObbliqua}>spianatura</button
+    >
+  </div>
 
   <div class="flex flex-wrap gap-5 justify-center">
     <Gcanvas coordsArray={array} anim_speed={ANIMATION_SPEED} />
