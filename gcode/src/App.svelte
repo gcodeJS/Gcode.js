@@ -30,13 +30,14 @@
 
   function createLineaObbliqua() {
     array = [];
+    const WIDTH = 7;
 
     for (let i = 0; i <= 50; i++) {
       array = [
         ...array,
         {
-          x: i * 10,
-          y: i * 10,
+          x: i * WIDTH,
+          y: i * WIDTH,
           options: {
             before: {
               G: 0,
@@ -44,6 +45,64 @@
           },
         },
       ];
+    }
+  }
+
+  function createSpianatura() {
+    array = [];
+
+    let ExampleData = {
+      piece: {
+        width: 50,
+        height: 100,
+      },
+      tool: {
+        diameter: 20,
+        percentage: 60,
+      },
+      coords: {
+        previus: {
+          x: null,
+          y: null,
+          z: null,
+        },
+        zeroPoint: {
+          x: 0,
+          y: 0,
+          z: 1,
+        },
+      },
+    };
+
+    const linesToDo = {
+      y: Math.ceil(
+        ExampleData.piece.height /
+          ((ExampleData.tool.diameter / 100) * ExampleData.tool.percentage),
+      ),
+    };
+
+    console.log(linesToDo);
+
+    let isRight = false;
+
+    for (let i = 0; i <= 50; i++) {
+      if (isRight) {
+      }
+
+      function goLeft() {}
+
+      // array = [
+      //   ...array,
+      //   {
+      //     x: 10,
+      //     y: 10,
+      //     options: {
+      //       before: {
+      //         G: 1,
+      //       },
+      //     },
+      //   },
+      // ];
     }
   }
 </script>
@@ -58,6 +117,11 @@
     <button
       class="bg-sky-500 p-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-[1.01] focus:outline hover:shadow-sky-600/30 transition"
       on:click={createLineaObbliqua}>linea obliqua</button
+    >
+
+    <button
+      class="bg-sky-500 p-4 rounded-lg text-2xl text-white hover:shadow-lg hover:scale-[1.01] focus:outline hover:shadow-sky-600/30 transition"
+      on:click={createSpianatura}>Spianatura</button
     >
   </div>
 
