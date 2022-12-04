@@ -12,7 +12,7 @@
 
   $: scrollBarHeight = hWith - hNot;
 
-  export let anim_speed = 20;
+  export let animationSpeed = 20;
 </script>
 
 <div
@@ -32,7 +32,7 @@
       prevX={prevCoords.x}
       prevY={prevCoords.y}
       {index}
-      {anim_speed}
+      {animationSpeed}
     />
   {/each}
 </div>

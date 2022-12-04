@@ -4,7 +4,7 @@
   export let prevX;
   export let prevY;
   export let index;
-  export let anim_speed;
+  export let animationSpeed;
 
   const sameX = x === prevX;
   const sameY = y === prevY;
@@ -50,6 +50,7 @@
     }
 
     if (sameX) return 90;
+    if(isPrevXgreater) return 180; // TODO: test this line properly :)
 
     return 0;
   }
@@ -67,7 +68,7 @@
   --prev-x-coord:{prevX}px; 
   --prev-y-coord:{prevY}px; 
   --line-angle:{setLineAngle()}deg;
-  --line-delay:{anim_speed * index}ms;
+  --line-delay:{animationSpeed * index}ms;
   --line-transform-origin:{setLineTransformOrigin()};
   "
 />
