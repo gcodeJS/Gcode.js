@@ -62,15 +62,18 @@
       },
       coords: {
         previus: {
-          x: null,
-          y: null,
-          z: null,
+          x: 0,
+          y: 0,
+          z: 1,
         },
         zeroPoint: {
           x: 0,
           y: 0,
           z: 1,
         },
+      },
+      options: {
+        distanzaSicurezza: 2,
       },
     };
 
@@ -79,30 +82,83 @@
         ExampleData.piece.height /
           ((ExampleData.tool.diameter / 100) * ExampleData.tool.percentage),
       ),
+      z: ExampleData.coords.zeroPoint.z,
     };
-
-    console.log(linesToDo);
 
     let isRight = false;
 
-    for (let i = 0; i <= 50; i++) {
-      if (isRight) {
+    for (
+      let linesZcompleted = linesToDo.z;
+      linesZcompleted >= 0;
+      linesZcompleted--
+    ) {
+      const startPoints = {
+        x:
+          ExampleData.coords.zeroPoint.x -
+          ExampleData.tool.diameter / 2 -
+          ExampleData.options.distanzaSicurezza,
+        y:
+          ExampleData.tool.diameter / 2 -
+          (ExampleData.tool.diameter / 100) * ExampleData.tool.percentage, // diam percentage measure
+      };
+
+      ExampleData.coords.previus.z = linesZcompleted;
+
+      array = [
+        ...array,
+        {
+          x: startPoints.x,
+          y: startPoints.y,
+          z: ExampleData.coords.previus.z,
+          options: {
+            before: {
+              G: 1,
+            },
+          },
+        },
+      ];
+      
+      for (
+        let linesYcompleted = 0;
+        linesYcompleted <= linesToDo.y;
+        linesYcompleted++
+      ) {
+        console.log({ isRight });
+        if (isRight) {
+          ExampleData.coords.previus.x =
+            ExampleData.coords.zeroPoint.x -
+            ExampleData.options.distanzaSicurezza; // go left
+          addThisCoordinate();
+          ExampleData.coords.previus.y +=
+            (ExampleData.tool.diameter / 100) * ExampleData.tool.percentage;
+          addThisCoordinate();
+          isRight = false;
+        } else {
+          ExampleData.coords.previus.x =
+            ExampleData.piece.height + ExampleData.options.distanzaSicurezza; // go right
+          addThisCoordinate();
+          ExampleData.coords.previus.y +=
+            (ExampleData.tool.diameter / 100) * ExampleData.tool.percentage;
+          addThisCoordinate();
+          isRight = true;
+        }
+
+        function addThisCoordinate() {
+          array = [
+            ...array,
+            {
+              x: ExampleData.coords.previus.x,
+              y: ExampleData.coords.previus.y,
+              z: ExampleData.coords.previus.z,
+              options: {
+                before: {
+                  G: 1,
+                },
+              },
+            },
+          ];
+        }
       }
-
-      function goLeft() {}
-
-      // array = [
-      //   ...array,
-      //   {
-      //     x: 10,
-      //     y: 10,
-      //     options: {
-      //       before: {
-      //         G: 1,
-      //       },
-      //     },
-      //   },
-      // ];
     }
   }
 </script>
