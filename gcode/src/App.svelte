@@ -38,7 +38,9 @@
           x: i * 10,
           y: i * 10,
           options: {
-            G: 2,
+            before: {
+              G: 0,
+            },
           },
         },
       ];
@@ -60,7 +62,7 @@
   </div>
 
   <div class="flex flex-wrap gap-5 justify-center">
-    <Gcanvas coordsArray={array} anim_speed={ANIMATION_SPEED} />
-    <Gsource coordsArray={array} />
+    <Gcanvas coordsArray={array} animationSpeed={ANIMATION_SPEED} />
+    <Gsource coordsArray={array} animationSpeed={ANIMATION_SPEED} />
   </div>
 </main>
