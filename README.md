@@ -1,6 +1,8 @@
 # Gcode.js
 generate/simulate CNC 3d machine native G code. written in svelte framework, compiled to native javascript
 
+> outdated, I am planning to sopport it this summer, for now don't use it
+
 -----
 
 # examples:
