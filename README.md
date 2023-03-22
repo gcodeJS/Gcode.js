@@ -1,7 +1,11 @@
 # Gcode.js
 generate/simulate CNC 3d machine native G code. written in svelte framework, compiled to native javascript
 
-> outdated, I am planning to sopport it this summer, for now don't use it
+> MESSAGE DECEMBER 22: outdated, I am planning to sopport it this summer, for now don't use it
+> 
+> MESSAGE MARCH 23: all this code in the repo is obsolete since I didn't knew about SVGs, my bad...
+> <br> infact with svg we can't refactor this code better.
+> <br> now I am rewriting this code in this repo https://github.com/Laaouatni/Gcnc.svelte
 
 -----
 
