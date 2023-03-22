@@ -3,9 +3,9 @@ generate/simulate CNC 3d machine native G code. written in svelte framework, com
 
 > MESSAGE DECEMBER 22: outdated, I am planning to sopport it this summer, for now don't use it
 > 
-> MESSAGE MARCH 23: all this code in the repo is obsolete since I didn't knew about SVGs, my bad...
+> MESSAGE MARCH 23: all this code in the repo is obsolete since I didn't knew about SVGs potential, my bad...
 > <br> infact with svg we can't refactor this code better.
-> <br> now I am rewriting this code in this repo https://github.com/Laaouatni/Gcnc.svelte
+> <br> now I am rewriting this code in this repo https://github.com/Laaouatni/Gcnc.svelte (now we don't focus on the graph, but on creating a framework for us, then we can build the graph on top of our framework. sorry and thanks for reading.
 
 -----
 
